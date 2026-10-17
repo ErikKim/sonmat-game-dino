@@ -1,0 +1,704 @@
+{
+ "name": "Cadillacs and Dinosaurs",
+ "name_ko": "캐딜락 & 다이노소어",
+ "exe": "mame.exe",
+ "engine": "mame",
+ "install": {"mame": "mods/mame"},
+ "roms": [
+  "dino"
+ ],
+ "event_file": "C:\\Users\\Public\\dshaptics\\events_mame.log",
+ "mame": {
+  "main_cpu": ":maincpu",
+  "sound_command": [
+   "f18002",
+   "f18003"
+  ],
+  "watch": {
+   "p1_energy": [
+    "ffb2e1",
+    1,
+    "level",
+    100
+   ],
+   "p2_energy": [
+    "ffb461",
+    1,
+    "level",
+    100
+   ],
+   "p3_energy": [
+    "ffb5e1",
+    1,
+    "level",
+    100
+   ],
+   "p1_weapon": [
+    "ffb32a",
+    2
+   ],
+   "p2_weapon": [
+    "ffb4aa",
+    2
+   ],
+   "p3_weapon": [
+    "ffb62a",
+    2
+   ],
+   "p1_ride": [
+    "ffb2fc",
+    1
+   ],
+   "p2_ride": [
+    "ffb47c",
+    1
+   ],
+   "p3_ride": [
+    "ffb5fc",
+    1
+   ],
+   "p1_wet": [
+    "ffb2f7",
+    1
+   ],
+   "p2_wet": [
+    "ffb477",
+    1
+   ],
+   "p3_wet": [
+    "ffb5f7",
+    1
+   ],
+   "p1_grab": [
+    "ffb2bc",
+    1,
+    "in",
+    [
+     "3a",
+     "43",
+     "44",
+     "45",
+     "46",
+     "47"
+    ]
+   ],
+   "p2_grab": [
+    "ffb43c",
+    1,
+    "in",
+    [
+     "3a",
+     "43",
+     "44",
+     "45",
+     "46",
+     "47"
+    ]
+   ],
+   "p3_grab": [
+    "ffb5bc",
+    1,
+    "in",
+    [
+     "3a",
+     "43",
+     "44",
+     "45",
+     "46",
+     "47"
+    ]
+   ]
+  },
+  "buttons": {
+   "p1_attack": "P1 Button 1",
+   "p2_attack": "P2 Button 1",
+   "p3_attack": "P3 Button 1"
+  },
+  "owner": {
+   "swing": "^snd:(e7|dc|69|a8|38|4b|4c|4d|4e)$",
+   "press_delay": 2,
+   "press_slack": 10,
+   "hit": "^snd:(34|39|3a)$",
+   "hit_window": 20,
+   "hurt": "^snd:(39|3a)$",
+   "hurt_window": 3
+  }
+ },
+ "source": {
+  "type": "mame_qsound",
+  "rom": "dino",
+  "files": [
+   "cd-q1.1k",
+   "cd-q2.2k",
+   "cd-q3.3k",
+   "cd-q4.4k"
+  ],
+  "rate": 24038,
+  "samples": {
+   "1": [
+    "0a0000",
+    "0a786b"
+   ],
+   "2": [
+    "0b8000",
+    "0bf3f8"
+   ],
+   "3": [
+    "0d8000",
+    "0de431"
+   ],
+   "4": [
+    ["0edb45", "0efdd9", "0f20", 0.82],
+    ["0e0000", "0e5f08", "0f20", 1.0]
+   ]
+  },
+  "spk": "spk"
+ },
+ "speaker": {
+  "all": false,
+  "allow": "^snd:(4b|4c|4d|4e)$",
+  "gain": 0.25,
+  "lowcut_hz": [
+   150,
+   300
+  ],
+  "bass": 0.2,
+  "layers": [
+   {
+    "layers": "speaker_layers.json",
+    "dir": "spk"
+   }
+  ]
+ },
+ "master": 1.0,
+ "rough": {
+  "hurt": "hit",
+  "shot_pistol": "shot_s",
+  "shot_smg": "shot_s",
+  "shot_rifle": "shot_m",
+  "shot_shotgun": "shot_l",
+  "shot_launcher": "shot_xl",
+  "swing": "swing",
+  "hit": "hit",
+  "pickup": "item",
+  "engine": "cart",
+  "ram": "hit_m",
+  "wade": "step_water",
+  "splash": "water_in",
+  "ripple": "step_water",
+  "blast": "blast",
+  "hit_blade": "stab",
+  "hit_club": "hit_m",
+  "swing_weapon": "swing_l",
+  "grab": "hand"
+ },
+ "style": {"rough": "hit", 
+  "hit": "sb",
+  "top": "shot_shotgun|shot_launcher|blast|hit_club",
+  "skip": "shot_smg|engine|wade|splash|ripple|^grab$|swing_weapon",
+  "sizes": [
+   [
+    "^blast$",
+    {
+     "tail_s": 2.4,
+     "tail": 0.3,
+     "hz": 42,
+     "ms": 70
+    }
+   ],
+   [
+    "shot_launcher",
+    {
+     "hz": 37,
+     "top_ms": 140,
+     "tail_s": 1.8
+    }
+   ],
+   [
+    "shot_shotgun",
+    {
+     "hz": 37,
+     "top_ms": 100,
+     "tail_s": 1.8
+    }
+   ],
+   [
+    "shot_rifle",
+    {
+     "hz": 50,
+     "ms": 22,
+     "tail_s": 1.0
+    }
+   ],
+   [
+    "shot_pistol",
+    {
+     "hz": 62,
+     "ms": 12,
+     "tail_s": 0.6
+    }
+   ],
+   [
+    "hit_blade",
+    {
+     "hz": 72,
+     "ms": 14,
+     "keep": 0.8
+    }
+   ],
+   [
+    "hit_club|^ram$",
+    {
+     "hz": 40,
+     "top_ms": 90,
+     "ms": 50
+    }
+   ],
+   [
+    "^hit$",
+    {
+     "hz": 62,
+     "ms": 18
+    }
+   ],
+   [
+    "^hurt$",
+    {
+     "hz": 46,
+     "ms": 35
+    }
+   ]
+  ]
+ },
+ "duck": 0.3,
+ "gap": 0.03,
+ "waves": {
+  "hurt": [
+   [
+    70,
+    60,
+    0.9,
+    30
+   ],
+   [
+    45,
+    140,
+    0.6,
+    70
+   ]
+  ],
+  "shot_pistol": [
+   [
+    240,
+    10,
+    0.8,
+    4
+   ],
+   [
+    110,
+    40,
+    0.6,
+    18
+   ]
+  ],
+  "shot_smg": [
+   [
+    220,
+    8,
+    0.6,
+    3
+   ],
+   [
+    120,
+    22,
+    0.45,
+    10
+   ]
+  ],
+  "shot_rifle": [
+   [
+    200,
+    10,
+    0.8,
+    4
+   ],
+   [
+    95,
+    45,
+    0.7,
+    20
+   ]
+  ],
+  "shot_shotgun": [
+   [
+    180,
+    14,
+    1.0,
+    6
+   ],
+   [
+    60,
+    120,
+    1.0,
+    50
+   ]
+  ],
+  "shot_launcher": [
+   [
+    90,
+    40,
+    0.8,
+    20
+   ],
+   60,
+   [
+    45,
+    320,
+    1.0,
+    150
+   ]
+  ],
+  "swing": [
+   [
+    170,
+    28,
+    0.16,
+    12
+   ]
+  ],
+  "hit": [
+   [
+    230,
+    10,
+    0.9,
+    5
+   ],
+   [
+    95,
+    45,
+    0.8,
+    22
+   ]
+  ],
+  "pickup": [
+   [
+    260,
+    10,
+    0.5,
+    4
+   ],
+   25,
+   [
+    140,
+    25,
+    0.4,
+    10
+   ]
+  ],
+  "engine": [
+   [
+    45,
+    60,
+    0.32,
+    35
+   ],
+   [
+    90,
+    25,
+    0.1,
+    12
+   ]
+  ],
+  "ram": [
+   [
+    150,
+    12,
+    0.9,
+    6
+   ],
+   [
+    55,
+    140,
+    0.9,
+    70
+   ]
+  ],
+  "wade": [
+   [
+    150,
+    30,
+    0.24,
+    12
+   ],
+   [
+    75,
+    70,
+    0.14,
+    35
+   ]
+  ],
+  "splash": [
+   [
+    110,
+    30,
+    0.55,
+    15
+   ],
+   [
+    50,
+    400,
+    0.45,
+    180
+   ]
+  ],
+  "ripple": [
+   [
+    48,
+    260,
+    0.12,
+    160
+   ]
+  ],
+  "blast": [
+   [
+    60,
+    60,
+    1.0,
+    30
+   ],
+   [
+    40,
+    300,
+    0.9,
+    140
+   ]
+  ],
+  "hit_blade": [
+   [
+    380,
+    8,
+    0.9,
+    4
+   ],
+   [
+    190,
+    35,
+    0.6,
+    16
+   ]
+  ],
+  "hit_club": [
+   [
+    200,
+    12,
+    1.0,
+    6
+   ],
+   [
+    100,
+    40,
+    0.9,
+    20
+   ],
+   [
+    60,
+    90,
+    0.8,
+    45
+   ]
+  ],
+  "swing_weapon": [
+   [
+    250,
+    40,
+    0.3,
+    18
+   ],
+   [
+    180,
+    70,
+    0.2,
+    35
+   ]
+  ],
+  "grab": [
+   [
+    160,
+    18,
+    0.6,
+    8
+   ],
+   8,
+   [
+    110,
+    30,
+    0.5,
+    15
+   ]
+  ]
+ },
+ "beds": {
+  "car": {
+   "on": "^ram:p\\d_ride:\\w+>04$",
+   "off": "^ram:p\\d_ride:",
+   "wave": "engine",
+   "every": 0.12,
+   "vary": 0.7,
+   "max": 120
+  }
+ },
+ "rules": [
+  {
+   "match": "^snd:f5$",
+   "wave": "ram",
+   "gap": 0.08
+  },
+  {
+   "match": "^snd:f2$",
+   "wave": "wade"
+  },
+  {
+   "match": "^snd:6a$|^ram:p\\d_wet:\\w+>01$",
+   "wave": "splash",
+   "gap": 0.4
+  },
+  {
+   "match": "^ram:p\\d_energy:down$",
+   "wave": "hurt",
+   "per": 16
+  },
+  {
+   "match": "^snd:e7$",
+   "wave": "shot_pistol"
+  },
+  {
+   "match": "^snd:dc$",
+   "wave": "shot_smg"
+  },
+  {
+   "match": "^snd:69$",
+   "wave": "shot_launcher"
+  },
+  {
+   "match": "^snd:2c$",
+   "wave": "blast"
+  },
+  {
+   "match": "^snd:62$",
+   "wave": "pickup"
+  },
+  {
+   "match": "^snd:(39|3a)$",
+   "when": {
+    "weapon": "^202$"
+   },
+   "wave": "hit_blade"
+  },
+  {
+   "match": "^snd:(39|3a)$",
+   "when": {
+    "weapon": "^2(03|0[a-f]|[1-9a-f][0-9a-f])$"
+   },
+   "wave": "hit_club"
+  },
+  {
+   "match": "^snd:(a8|38)$",
+   "when": {
+    "weapon": "^202$|^2(03|0[a-f]|[1-9a-f][0-9a-f])$"
+   },
+   "wave": "swing_weapon"
+  },
+  {
+   "match": "^ram:p\\d_grab:\\w+>01$",
+   "wave": "grab"
+  },
+  {
+   "match": "^snd:(a8|38)$",
+   "wave": "swing"
+  },
+  {
+   "match": "^snd:(39|3a)$",
+   "wave": "hit"
+  }
+ ],
+ "trigger_pause": {
+  "on": "^ram:p\\d_grab:\\w+>01$",
+  "off": "^ram:p\\d_grab:\\w+>00$"
+ },
+ "triggers": {
+  "knife": {
+   "preset": "melee_blade",
+   "match": "^ram:p\\d_weapon:\\w+>202$",
+   "until": "^ram:p\\d_weapon:"
+  },
+  "club": {
+   "preset": "melee_club",
+   "match": "^ram:p\\d_weapon:\\w+>2(03|0[a-f]|[1-9a-f][0-9a-f])$",
+   "until": "^ram:p\\d_weapon:"
+  },
+  "handgun": {
+   "preset": "gun_pistol",
+   "match": "^ram:p\\d_weapon:\\w+>204$",
+   "until": "^ram:p\\d_weapon:"
+  },
+  "uzi": {
+   "preset": "gun_smg",
+   "match": "^ram:p\\d_weapon:\\w+>206$",
+   "until": "^ram:p\\d_weapon:"
+  },
+  "shotgun": {
+   "preset": "gun_shotgun",
+   "match": "^ram:p\\d_weapon:\\w+>208$",
+   "until": "^ram:p\\d_weapon:"
+  },
+  "bazooka": {
+   "preset": "gun_launcher",
+   "match": "^ram:p\\d_weapon:\\w+>209$",
+   "until": "^ram:p\\d_weapon:"
+  },
+  "rifle": {
+   "preset": "gun_rifle",
+   "match": "^ram:p\\d_weapon:\\w+>205$",
+   "until": "^ram:p\\d_weapon:"
+  },
+  "m16": {
+   "preset": "gun_rifle",
+   "match": "^ram:p\\d_weapon:\\w+>207$",
+   "until": "^ram:p\\d_weapon:"
+  }
+ },
+ "_labels": {
+  "snd:4b": "A+B 필살기 음성 - 잭(확인)",
+  "snd:4c": "A+B 필살기 음성 - 한나(확인)",
+  "snd:4d": "A+B 필살기 음성 - 무스타파(확인)",
+  "snd:4e": "A+B 필살기 음성 - 메스(확인)",
+  "snd:e7": "권총 발사(탄 수가 줄 때마다, 확인)",
+  "snd:62": "무기 줍기(확인)",
+  "snd:a8": "주먹 휘두름(확인)",
+  "snd:38": "주먹 휘두름 2(연타 중 번갈아, 확인)",
+  "snd:39": "타격 적중(추정)",
+  "snd:3a": "타격 적중 2(추정)",
+  "snd:3c": "타격 직후 따라오는 소리(39/3a 1프레임 뒤, 추정: 목소리)",
+  "snd:34": "미확인(전투 중 잦음)",
+  "snd:79": "미확인",
+  "snd:89": "미확인",
+  "snd:e1": "미확인",
+  "snd:72": "미확인(주기적으로 f8 과 번갈아)",
+  "snd:f8": "미확인",
+  "snd:dc": "우지 발사(연사 중 7프레임마다, 확인)",
+  "snd:69": "바주카 발사(버튼 2프레임 뒤, 확인)",
+  "snd:66": "바주카 발사 직후 3~4프레임 연속(추정: 로켓 날아가는 소리)",
+  "snd:2c": "바주카 폭발(추정)",
+  "snd:f5": "묵직한 충돌 - 차가 적을 칠 때마다(차 구간에 몰림, 다른 곳에서도 가끔. 추정)",
+  "snd:6e": "f5 바로 뒤에 늘 따라오는 소리(진동 없음)",
+  "snd:f2": "물속 걸음(늪 구간에서 50프레임마다, 추정)",
+  "snd:6c": "f2 바로 뒤에 늘 따라오는 소리(진동 없음)",
+  "snd:6a": "물에 빠지는 소리(늪 구간, 추정)",
+  "ram:p1_ride": "차에 탐(04)/내림 - 확인",
+  "ram:p1_wet": "발이 물에 잠김(01)/나옴 - 확인",
+  "ram:p1_grab": "적을 잡고 있음(01)/놓음 - 잡고 있는 것은 화면 확인, 잡고 때리기·던지기는 추정"
+ },
+ "state": {
+  "weapon": "^ram:p\\d_weapon:\\w+>(\\w+)$"
+ }
+}
