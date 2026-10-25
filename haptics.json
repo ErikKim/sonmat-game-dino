@@ -3,7 +3,6 @@
  "name_ko": "캐딜락 & 다이노소어",
  "exe": "mame.exe",
  "engine": "mame",
- "install": {"mame": "mods/mame"},
  "roms": [
   "dino"
  ],
