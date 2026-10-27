@@ -184,7 +184,6 @@
   "ram": "hit_m",
   "wade": "step_water",
   "splash": "water_in",
-  "ripple": "step_water",
   "blast": "blast",
   "hit_blade": "stab",
   "hit_club": "hit_m",
@@ -448,14 +447,6 @@
     400,
     0.45,
     180
-   ]
-  ],
-  "ripple": [
-   [
-    48,
-    260,
-    0.12,
-    160
    ]
   ],
   "blast": [
